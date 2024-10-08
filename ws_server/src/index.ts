@@ -16,8 +16,14 @@ wss.on("connection", async (ws, req) => {
     });
 });
 
+app.get("/", (req, res) => {
+    res.json("Hello World")
+})
+
 app.get("/health", (req, res) => {
     res.json({msg: "I am healthy"})
 })
 
-server.listen(port);
+server.listen(port, () => {
+    console.log(`Server Listening at http://localhost:${port}`)
+});
